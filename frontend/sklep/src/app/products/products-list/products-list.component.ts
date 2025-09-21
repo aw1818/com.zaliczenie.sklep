@@ -17,7 +17,7 @@ export class ProductsListComponent implements OnInit, OnChanges {
 
   protected products$!: Observable<Product[]>;
 
-  displayedColumns = ['imageUrl', 'name', 'description', 'price'];
+  displayedColumns = ['imageUrl', 'name', 'description', 'price', 'actions'];
 
   ngOnInit(): void {
     this.products$ = this.productsService.getProductsList();
@@ -47,4 +47,11 @@ export class ProductsListComponent implements OnInit, OnChanges {
     );
   }
 
+
+   public deleteProduct(productID: string) {
+     this.productsService.deleteProduct(+productID)
+        .subscribe(() => {
+          this.productsService.fetchAllProducts();
+       });
+   }
 }
