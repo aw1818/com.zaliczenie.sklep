@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" class="top-toolbar">
+  <span>Sklep</span>
+  <mat-form-field class="currency-select">
+    <mat-label>Wybierz walutę ceny</mat-label>
+    <mat-select [(ngModel)]="selectedCurrency">
+      <mat-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-flat-button (click)="addProduct()">Dodaj nowy produkt</button>
+</mat-toolbar>
+<div class="inner-container">
+  <app-products-list
+    [currency]="selectedCurrency"
+  ></app-products-list>
+</div>

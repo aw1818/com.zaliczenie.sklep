@@ -1,0 +1,16 @@
+<form [formGroup]="productForm" class="add-product-form">
+  <h1>Dodaj produkt</h1>
+  <mat-form-field>
+    <input matInput placeholder="Nazwa" formControlName="name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Opis" formControlName="description">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Cena" formControlName="price">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Adres obrazka" formControlName="imageUrl">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="addProduct()">Dodaj</button>
+</form>
